@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manuscrito de Adoración Perpetua — Para Erick</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+   🔒 RITUAL LOCK
+========================= */
+#ritual-lock {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#ritual-button {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  padding: 22px 60px;
+  background: #660000;
+  color: #e6d8c3;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+  box-shadow: 0 0 40px rgba(179,0,0,0.7);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+#ritual-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 70px rgba(179,0,0,1);
+}
+
+.locked {
+  display: none;
+}
+
+/* ❤️ Corazones post-ritual */
+.heart {
+  position: fixed;
+  font-size: 20px;
+  color: #b30000;
+  animation: float 6s linear infinite;
+  opacity: 0.7;
+}
+@keyframes float {
+  from { transform: translateY(100vh); opacity: 0; }
+  to { transform: translateY(-10vh); opacity: 1; }
+}
+</style>
+
+<!-- ⚠️ TU CSS ORIGINAL VA AQUÍ SIN CAMBIOS -->
+<!-- (todo el style enorme que ya enviaste permanece igual) -->
+
+</head>
+<body>
+
+<!-- 🔒 PANTALLA DE RITUAL -->
+<div id="ritual-lock">
+  <button id="ritual-button">Iniciar Ritual</button>
+</div>
+
+<!-- 🔓 CONTENIDO PROTEGIDO -->
+<div id="protected-content" class="locked">
+
+<!-- ⬇️⬇️⬇️
+     TODO TU HTML ORIGINAL
+     DESDE <div class="main-container">
+     HASTA EL FINAL
+⬇️⬇️⬇️ -->
+
+<!-- PEGA AQUÍ EXACTAMENTE TODO LO QUE ME ENVIASTE
+     NO CAMBIES NADA -->
+
+</div>
+
+<!-- 🔊 AUDIOS -->
+<audio id="voice" src="voice.mp3"></audio>
+<audio id="heartbeat" src="heartbeat.mp3" loop></audio>
+
+<script>
+/* =========================
+   🧠 LÓGICA DEL RITUAL
+========================= */
+const unlocked = localStorage.getItem("ritualUnlocked");
+const lock = document.getElementById("ritual-lock");
+const content = document.getElementById("protected-content");
+const voice = document.getElementById("voice");
+const heartbeat = document.getElementById("heartbeat");
+
+if (unlocked) {
+  lock.style.display = "none";
+  content.classList.remove("locked");
+}
+
+document.getElementById("ritual-button").addEventListener("click", async () => {
+  await voice.play();
+
+  voice.onended = () => {
+    heartbeat.volume = 0.05;
+    heartbeat.play();
+
+    let v = 0.05;
+    const grow = setInterval(() => {
+      v += 0.05;
+      heartbeat.volume = Math.min(v, 1);
+      if (v >= 1) clearInterval(grow);
+    }, 600);
+
+    lock.style.display = "none";
+    content.classList.remove("locked");
+    localStorage.setItem("ritualUnlocked", "true");
+
+    spawnHearts();
+  };
+});
+
+/* 💗 Corazones */
+function spawnHearts() {
+  setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerText = "❤";
+    h.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+  }, 800);
+}
+
+/* 🔁 REINICIO SECRETO (CTRL + ALT + R) */
+document.addEventListener("keydown", e => {
+  if (e.ctrlKey && e.altKey && e.key === "r") {
+    localStorage.removeItem("ritualUnlocked");
+    location.reload();
+  }
+});
+</script>
+
+</body>
+</html>
