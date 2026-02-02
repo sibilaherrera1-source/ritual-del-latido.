@@ -8,9 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 
 <style>
-/* =========================
+/* =====================
    🔒 RITUAL LOCK
-========================= */
+===================== */
 #ritual-lock {
   position: fixed;
   inset: 0;
@@ -33,6 +33,7 @@
   box-shadow: 0 0 40px rgba(179,0,0,0.7);
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 #ritual-button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 70px rgba(179,0,0,1);
@@ -42,24 +43,63 @@
   display: none;
 }
 
-/* ❤️ Corazones post-ritual */
+/* 💗 Corazones */
 .heart {
   position: fixed;
   font-size: 20px;
   color: #b30000;
   animation: float 6s linear infinite;
   opacity: 0.7;
+  pointer-events: none;
 }
+
 @keyframes float {
   from { transform: translateY(100vh); opacity: 0; }
   to { transform: translateY(-10vh); opacity: 1; }
 }
+
+/* =====================
+   🎨 TU ESTILO ORIGINAL
+===================== */
+:root {
+  --bg-dark: #050505;
+  --card-black: #0f0f0f;
+  --paper-aged: #d9cbb6;
+  --ink-dark: #1a1a1a;
+  --blood-red: #660000;
+  --bright-red: #b30000;
+  --gold-muted: #a88b5e;
+  --shadow-deep: 0 20px 40px rgba(0,0,0,0.9);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-dark);
+  color: #b0b0b0;
+  font-family: 'Crimson Text', serif;
+  line-height: 1.7;
+  padding: 40px 20px;
+}
+
+h1, h2, h3 {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.main-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 40px;
+}
+
+/* (el resto de tu CSS sigue igual — no lo toqué) */
 </style>
-
-<!-- ⚠️ TU CSS ORIGINAL VA AQUÍ SIN CAMBIOS -->
-<!-- (todo el style enorme que ya enviaste permanece igual) -->
-
 </head>
+
 <body>
 
 <!-- 🔒 PANTALLA DE RITUAL -->
@@ -70,25 +110,24 @@
 <!-- 🔓 CONTENIDO PROTEGIDO -->
 <div id="protected-content" class="locked">
 
-<!-- ⬇️⬇️⬇️
-     TODO TU HTML ORIGINAL
-     DESDE <div class="main-container">
-     HASTA EL FINAL
-⬇️⬇️⬇️ -->
+<!-- =================================================
+     ⬇️ TU CONTENIDO COMPLETO ORIGINAL ⬇️
+     (TODO lo que me pasaste va acá)
+================================================= -->
 
-<!-- PEGA AQUÍ EXACTAMENTE TODO LO QUE ME ENVIASTE
-     NO CAMBIES NADA -->
+<!-- PEGA AQUÍ TODO TU <div class="main-container"> ... </div> -->
+<!-- TAL CUAL, SIN MODIFICAR UNA PALABRA -->
 
 </div>
 
 <!-- 🔊 AUDIOS -->
-<audio id="voice" src="voice.mp3"></audio>
+<audio id="voice" src="PTT-20260202-WA0108.opus"></audio>
 <audio id="heartbeat" src="heartbeat.mp3" loop></audio>
 
 <script>
-/* =========================
-   🧠 LÓGICA DEL RITUAL
-========================= */
+/* =====================
+   🧠 RITUAL
+===================== */
 const unlocked = localStorage.getItem("ritualUnlocked");
 const lock = document.getElementById("ritual-lock");
 const content = document.getElementById("protected-content");
@@ -117,12 +156,10 @@ document.getElementById("ritual-button").addEventListener("click", async () => {
     lock.style.display = "none";
     content.classList.remove("locked");
     localStorage.setItem("ritualUnlocked", "true");
-
     spawnHearts();
   };
 });
 
-/* 💗 Corazones */
 function spawnHearts() {
   setInterval(() => {
     const h = document.createElement("div");
@@ -131,10 +168,10 @@ function spawnHearts() {
     h.style.left = Math.random() * 100 + "vw";
     document.body.appendChild(h);
     setTimeout(() => h.remove(), 6000);
-  }, 800);
+  }, 900);
 }
 
-/* 🔁 REINICIO SECRETO (CTRL + ALT + R) */
+/* 🔁 REINICIO SECRETO */
 document.addEventListener("keydown", e => {
   if (e.ctrlKey && e.altKey && e.key === "r") {
     localStorage.removeItem("ritualUnlocked");
