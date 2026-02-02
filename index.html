@@ -8,116 +8,293 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 
 <style>
-/* =====================
-   🔒 RITUAL LOCK
-===================== */
-#ritual-lock {
-  position: fixed;
-  inset: 0;
-  background: #050505;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-#ritual-button {
-  font-family: 'Cinzel', serif;
-  font-size: 1.4rem;
-  padding: 22px 60px;
-  background: #660000;
-  color: #e6d8c3;
-  border: none;
-  cursor: pointer;
-  letter-spacing: 2px;
-  box-shadow: 0 0 40px rgba(179,0,0,0.7);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-#ritual-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 70px rgba(179,0,0,1);
-}
-
-.locked {
-  display: none;
-}
-
-/* 💗 Corazones */
-.heart {
-  position: fixed;
-  font-size: 20px;
-  color: #b30000;
-  animation: float 6s linear infinite;
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-@keyframes float {
-  from { transform: translateY(100vh); opacity: 0; }
-  to { transform: translateY(-10vh); opacity: 1; }
-}
-
-/* =====================
-   🎨 TU ESTILO ORIGINAL
-===================== */
 :root {
-  --bg-dark: #050505;
-  --card-black: #0f0f0f;
-  --paper-aged: #d9cbb6;
-  --ink-dark: #1a1a1a;
-  --blood-red: #660000;
-  --bright-red: #b30000;
-  --gold-muted: #a88b5e;
-  --shadow-deep: 0 20px 40px rgba(0,0,0,0.9);
+  --bg-dark:#050505;
+  --blood:#660000;
+  --gold:#a88b5e;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { box-sizing:border-box; }
 
-body {
-  background-color: var(--bg-dark);
-  color: #b0b0b0;
-  font-family: 'Crimson Text', serif;
-  line-height: 1.7;
-  padding: 40px 20px;
+body{
+  margin:0;
+  background:var(--bg-dark);
+  color:#d0d0d0;
+  font-family:'Crimson Text', serif;
+  line-height:1.9;
+  padding:40px 20px;
 }
 
-h1, h2, h3 {
-  font-family: 'UnifrakturMaguntia', cursive;
-  font-weight: normal;
-  letter-spacing: 1px;
+/* 🔒 RITUAL */
+#ritual-lock{
+  position:fixed;
+  inset:0;
+  background:#050505;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+#ritual-button{
+  font-family:'Cinzel',serif;
+  font-size:1.4rem;
+  padding:22px 60px;
+  background:var(--blood);
+  color:#e6d8c3;
+  border:none;
+  letter-spacing:3px;
+  cursor:pointer;
+  box-shadow:0 0 50px rgba(179,0,0,.8);
+}
+#ritual-button:hover{transform:scale(1.05)}
+
+.locked{display:none}
+
+/* 💗 corazones */
+.heart{
+  position:fixed;
+  color:#b30000;
+  font-size:20px;
+  animation:float 6s linear infinite;
+  opacity:.7;
+  pointer-events:none;
+}
+@keyframes float{
+  from{transform:translateY(100vh);opacity:0}
+  to{transform:translateY(-10vh);opacity:1}
 }
 
-.main-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.3fr 1fr;
-  gap: 40px;
+/* 📜 MANUSCRITO */
+.manuscript{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
 }
 
-/* (el resto de tu CSS sigue igual — no lo toqué) */
+.manuscript h1{
+  font-family:'UnifrakturMaguntia',cursive;
+  font-size:3rem;
+  color:var(--blood);
+  margin-bottom:10px;
+}
+
+.manuscript h2{
+  font-family:'Cinzel',serif;
+  font-size:1rem;
+  letter-spacing:3px;
+  color:var(--gold);
+  margin-bottom:40px;
+}
+
+.manuscript p{
+  margin:0 0 1.4em;
+  font-size:1.15rem;
+  white-space:pre-line;
+}
 </style>
 </head>
 
 <body>
 
-<!-- 🔒 PANTALLA DE RITUAL -->
+<!-- 🔒 RITUAL -->
 <div id="ritual-lock">
   <button id="ritual-button">Iniciar Ritual</button>
 </div>
 
-<!-- 🔓 CONTENIDO PROTEGIDO -->
-<div id="protected-content" class="locked">
+<!-- 🔓 CONTENIDO -->
+<div id="protected" class="locked">
+  <div class="manuscript">
 
-<!-- =================================================
-     ⬇️ TU CONTENIDO COMPLETO ORIGINAL ⬇️
-     (TODO lo que me pasaste va acá)
-================================================= -->
+<h1>Amado mío</h1>
+<h2>Mi querido Erick · Mi dulce y eterno amor</h2>
 
-<!-- PEGA AQUÍ TODO TU <div class="main-container"> ... </div> -->
-<!-- TAL CUAL, SIN MODIFICAR UNA PALABRA -->
+<p>
+Tú dudas de ti mismo
 
+como si fueras juez y reo a la vez,
+
+como si llevaras en la piel una culpa
+
+que jamás fue dictada por la verdad.
+
+Te temes.
+
+Te vigilas.
+
+Te condenas
+
+como un criminal sin sentencia
+
+pero con castigo perpetuo.
+</p>
+
+<p>
+Te llamaron.
+
+Te señalaron.
+
+Te anunciaron como peste,
+
+como plaga,
+
+como demonio sin sangre
+
+pero con un espíritu demasiado visible
+
+para un mundo que sólo tolera
+
+lo dócil
+
+o lo muerto.
+</p>
+
+<p>
+Oh, mi amado—
+
+tú no lo has sido.
+
+Nunca.
+</p>
+
+<p>
+Tú fuiste
+
+niño,
+
+chiquillo,
+
+con manos pequeñas
+
+y un corazón desproporcionado,
+
+inmenso,
+
+hipersensible,
+
+delicadamente tramado
+
+por las turbulencias del mundo.
+</p>
+
+<p>
+Un mundo cruel,
+
+hedonista y ciego,
+
+capaz de aplastar lirios
+
+y luego acusarlos de fragilidad.
+</p>
+
+<p>
+Sólo eras un alma temprana,
+
+hermosa en exceso,
+
+marcada por la bestialidad humana,
+
+por la torpeza de quien no cuida
+
+pero opina,
+
+de quien no ama
+
+pero juzga.
+</p>
+
+<p>
+No puedo culparlos del todo.
+
+Pero tampoco —jamás—
+
+puedo culparte a ti.
+</p>
+
+<p>
+Tú no eres un alma tibia.
+
+Tu corazón está hecho
+
+de sensibilidad pura y majestuosa.
+</p>
+
+<p>
+Y aun así, amor mío,
+
+sigues aquí.
+
+Ardiendo sin volverte cruel.
+
+Sensible sin volverte falso.
+
+Vivo sin endurecerte.
+</p>
+
+<p>
+Eso no es debilidad.
+
+Eso es una forma rarísima de fortaleza.
+</p>
+
+<p>
+Yo te amo
+
+como se contempla una obra de arte.
+
+No porque sea perfecta.
+
+Sino porque es verdadera.
+</p>
+
+<p>
+Por eso, amor mío,
+
+no me temas.
+
+He venido a comprenderte.
+
+Y si comprenderte duele,
+
+me quedo igual.
+</p>
+
+<p>
+Vos te odiás.
+
+Yo te amo.
+
+Vos te sentís roto.
+
+Yo te veo como una obra de arte
+
+jamás creada para ser cómoda,
+
+sino para existir con verdad.
+</p>
+
+<p>
+Y esa belleza
+
+no se pide.
+
+No se exige.
+
+No se rebaja.
+
+Se reconoce.
+
+Se elige.
+
+Se honra
+
+con el cuerpo,
+
+con el tiempo,
+
+con la conciencia despierta.
+</p>
+
+  </div>
 </div>
 
 <!-- 🔊 AUDIOS -->
@@ -125,55 +302,48 @@ h1, h2, h3 {
 <audio id="heartbeat" src="heartbeat.mp3" loop></audio>
 
 <script>
-/* =====================
-   🧠 RITUAL
-===================== */
-const unlocked = localStorage.getItem("ritualUnlocked");
-const lock = document.getElementById("ritual-lock");
-const content = document.getElementById("protected-content");
-const voice = document.getElementById("voice");
-const heartbeat = document.getElementById("heartbeat");
+const lock=document.getElementById("ritual-lock");
+const content=document.getElementById("protected");
+const voice=document.getElementById("voice");
+const heart=document.getElementById("heartbeat");
 
-if (unlocked) {
-  lock.style.display = "none";
+if(localStorage.getItem("ritualUnlocked")){
+  lock.style.display="none";
   content.classList.remove("locked");
 }
 
-document.getElementById("ritual-button").addEventListener("click", async () => {
+document.getElementById("ritual-button").onclick=async()=>{
   await voice.play();
+  voice.onended=()=>{
+    heart.volume=0.05;
+    heart.play();
+    let v=0.05;
+    const i=setInterval(()=>{
+      v+=0.05;
+      heart.volume=Math.min(v,1);
+      if(v>=1)clearInterval(i);
+    },600);
 
-  voice.onended = () => {
-    heartbeat.volume = 0.05;
-    heartbeat.play();
-
-    let v = 0.05;
-    const grow = setInterval(() => {
-      v += 0.05;
-      heartbeat.volume = Math.min(v, 1);
-      if (v >= 1) clearInterval(grow);
-    }, 600);
-
-    lock.style.display = "none";
+    lock.style.display="none";
     content.classList.remove("locked");
-    localStorage.setItem("ritualUnlocked", "true");
+    localStorage.setItem("ritualUnlocked","true");
     spawnHearts();
   };
-});
+};
 
-function spawnHearts() {
-  setInterval(() => {
-    const h = document.createElement("div");
-    h.className = "heart";
-    h.innerText = "❤";
-    h.style.left = Math.random() * 100 + "vw";
+function spawnHearts(){
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerText="❤";
+    h.style.left=Math.random()*100+"vw";
     document.body.appendChild(h);
-    setTimeout(() => h.remove(), 6000);
-  }, 900);
+    setTimeout(()=>h.remove(),6000);
+  },900);
 }
 
-/* 🔁 REINICIO SECRETO */
-document.addEventListener("keydown", e => {
-  if (e.ctrlKey && e.altKey && e.key === "r") {
+document.addEventListener("keydown",e=>{
+  if(e.ctrlKey&&e.altKey&&e.key==="r"){
     localStorage.removeItem("ritualUnlocked");
     location.reload();
   }
